@@ -3,7 +3,8 @@ const router = express.Router();
 
 
 router.use((error, req, res, next) => {
-    res.json({ status: 500, msg: 'Internal Server error'});
+    const status = error.code
+    res.json({ status: status, msg: 'Internal Server error'});
 });
 
 router.use((req, res, next) => {
